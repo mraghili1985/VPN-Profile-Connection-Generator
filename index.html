@@ -1,0 +1,1573 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<title>سازنده پروفایل VPN (L2TP / IKEv2 / OpenVPN)</title>
+<link rel="manifest" href="manifest.json" />
+<meta name="theme-color" content="#2F6FED" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="VPN Profile" />
+<link rel="icon" href="data:image/png;base64,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" />
+<link rel="apple-touch-icon" href="data:image/png;base64,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" />
+<style>
+  :root {
+    --text-primary:#20232A; --text-secondary:#6B7280;
+    --blue:#2F6FED; --blue-dark:#1D4ED8; --blue-soft:#E8F0FF;
+    --green:#0EA57A; --green-dark:#047857; --green-soft:#E1F8F0;
+    --orange:#E08A2E; --orange-dark:#B45309; --orange-soft:#FFF1E0;
+    --purple:#7C5CFC; --purple-soft:#EFEAFF;
+    --border:#E7E7EF; --soft:#F7F7FB;
+    --card-shadow: 0 4px 18px rgba(31, 41, 55, 0.07);
+  }
+  * { box-sizing:border-box; }
+  body {
+    margin:0; min-height:100vh; color:var(--text-primary);
+    background: linear-gradient(135deg, #EEF3FF 0%, #F6F1FF 45%, #FFF6EC 100%);
+    font-family:'Noto Sans Arabic', Tahoma, sans-serif;
+    display:flex; justify-content:center; padding:50px 20px 90px;
+  }
+  .wrap { width:100%; max-width:680px; }
+  h1 {
+    font-size:28px; margin:0 0 6px; font-weight:800; display:flex; align-items:center; gap:10px;
+    background: linear-gradient(90deg, var(--blue-dark), var(--purple));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .sub { color:var(--text-secondary); font-size:15px; margin:0 0 26px; line-height:1.8; }
+
+  .typeSwitch { display:flex; gap:10px; margin-bottom:24px; }
+  .typeSwitch label {
+    flex:1; text-align:center; padding:14px 0; border:1.5px solid var(--border); border-radius:14px;
+    font-weight:700; font-size:15px; cursor:pointer; background:#fff; color:var(--text-secondary);
+    box-shadow: var(--card-shadow); transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .typeSwitch label:hover { transform: translateY(-1px); }
+  .typeSwitch input { display:none; }
+  .typeSwitch label.active { color:#fff; border-color:transparent; }
+  #labelMobileconfig.active { background: linear-gradient(135deg, var(--blue), #5B9CFF); box-shadow:0 6px 16px rgba(47,111,237,.3); }
+  #labelOpenVPN.active { background: linear-gradient(135deg, var(--orange), #FFB05C); box-shadow:0 6px 16px rgba(224,138,46,.3); }
+  #labelWindows.active { background: linear-gradient(135deg, #4B5563, #8B93A1); box-shadow:0 6px 16px rgba(75,85,99,.3); }
+
+  fieldset { border:1px solid var(--border); border-radius:16px; padding:20px 22px 22px; margin:0 0 20px; background:#fff; box-shadow: var(--card-shadow); }
+  legend { font-weight:800; font-size:13.5px; padding:5px 14px; color:var(--blue-dark); background:var(--blue-soft); border-radius:999px; }
+
+  label.field, label { display:block; font-size:14px; font-weight:600; margin:14px 0 6px; color:var(--text-primary); }
+  label .hint, label.field .hint { font-weight:400; color:var(--text-secondary); font-size:12.5px; }
+  input[type=text], input[type=password], input[type=number], select {
+    width:100%; padding:11px 14px; border:1.5px solid var(--border); border-radius:10px;
+    font-size:14.5px; font-family:inherit; background:var(--soft); direction:ltr; text-align:left;
+    transition: border-color .15s ease, box-shadow .15s ease, background .15s ease;
+  }
+  select { cursor:pointer; }
+  textarea {
+    width:100%; min-height:110px; padding:11px 14px; border:1.5px solid var(--border); border-radius:10px;
+    font-size:12.5px; font-family:ui-monospace, Menlo, monospace; background:var(--soft); direction:ltr; text-align:left;
+    resize:vertical; white-space:pre; overflow-wrap:normal;
+    transition: border-color .15s ease, box-shadow .15s ease, background .15s ease;
+  }
+  input:focus, textarea:focus, select:focus { outline:none; border-color:var(--blue); box-shadow:0 0 0 3px var(--blue-soft); background:#fff; }
+
+  .row2 { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .row3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; }
+
+  .checkline { display:flex; align-items:center; gap:10px; margin-top:16px; }
+  .checkline input { width:18px; height:18px; accent-color:var(--blue); }
+  .checkline label { margin:0; }
+
+  .filerow {
+    display:flex; align-items:center; gap:10px; background:var(--soft); border:1.5px dashed var(--border);
+    border-radius:10px; padding:8px 10px; margin-bottom:8px;
+  }
+  .filerow .browse-btn {
+    flex:0 0 auto; padding:8px 16px; border-radius:8px; border:1px solid var(--border);
+    background:#fff; color:var(--text-primary); font-size:13px; font-weight:700; cursor:pointer;
+    transition: all .15s ease;
+  }
+  .filerow .browse-btn:hover { background:var(--blue-soft); border-color:var(--blue); color:var(--blue-dark); }
+  .filerow input[type=file] { display:none; }
+  .filerow .filename { font-size:12.5px; color:var(--text-secondary); direction:ltr; text-align:left; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; flex:1; }
+  .filerow .filename.has-file { color:var(--green-dark); font-weight:600; }
+
+  .actions { display:flex; gap:12px; margin-top:8px; }
+  button { flex:1; padding:14px 0; border:none; border-radius:12px; font-size:15px; font-weight:700; cursor:pointer; font-family:inherit; transition: all .15s ease; }
+  #generateBtn { background: linear-gradient(135deg, var(--blue), var(--purple)); color:#fff; box-shadow:0 6px 16px rgba(47,111,237,.28); }
+  #generateBtn:hover { transform:translateY(-1px); box-shadow:0 8px 20px rgba(47,111,237,.35); }
+  #copyBtn, #shareBtn { background:#fff; color:var(--text-primary); border:1.5px solid var(--border); }
+  #copyBtn:hover, #shareBtn:hover { border-color:var(--blue); color:var(--blue-dark); transform:translateY(-1px); }
+  button:disabled { opacity:.6; cursor:not-allowed; transform:none !important; }
+
+  #msg { margin-top:14px; font-size:14px; border-radius:10px; padding:12px 14px; display:none; font-weight:600; }
+  #msg.ok { display:block; background:var(--green-soft); color:var(--green-dark); }
+  #msg.err { display:block; background:var(--orange-soft); color:var(--orange-dark); }
+
+  #preview {
+    margin-top:22px; width:100%; height:280px; direction:ltr; text-align:left;
+    font-family:ui-monospace, Menlo, monospace; font-size:12px; border:1.5px solid var(--border);
+    border-radius:10px; padding:14px; background:var(--soft); color:#333; resize:vertical;
+  }
+  details { margin-top:10px; }
+  summary { cursor:pointer; font-size:13.5px; color:var(--blue-dark); font-weight:600; }
+  .hidden { display:none !important; }
+  .note { font-size:12.5px; color:var(--text-secondary); margin-top:4px; }
+  .pem-note { font-size:12px; color:var(--text-secondary); margin-top:4px; direction:rtl; text-align:right; }
+
+  /* ===== iOS-style settings card (L2TP / IKEv2) ===== */
+  .iosNavBar { display:flex; align-items:center; justify-content:space-between; padding:2px 2px 16px; direction:ltr; }
+  .iosNavTitle { font-size:15px; font-weight:800; color:var(--text-primary); }
+  .iosCircleBtn { width:32px; height:32px; border-radius:50%; border:none; font-size:14px; font-weight:700; cursor:pointer; display:flex; align-items:center; justify-content:center; padding:0; flex:0 0 auto; }
+  .iosCircleBtn.gray { background:#E4E4E9; color:#6B6B70; }
+  .iosCircleBtn.gray:hover { background:#D6D6DC; }
+  .iosCircleBtn.blue { background:var(--blue); color:#fff; }
+  .iosCircleBtn.blue:hover { background:var(--blue-dark); }
+  .iosCircleBtn.hidden { visibility:hidden; }
+  #typeRow { cursor:pointer; }
+  .iosSectionLabel { font-size:12.5px; color:#8A8A93; font-weight:700; padding:16px 6px 8px; direction:ltr; text-align:left; }
+  .iosSegmented { display:flex; background:#E9E9EE; border-radius:9px; padding:2px; width:100%; opacity:.55; pointer-events:none; direction:ltr; }
+  .iosSegmented .seg { flex:1; text-align:center; padding:7px 0; font-size:13px; border-radius:7px; color:#3C3C43; }
+  .iosSegmented .seg.active { background:#fff; font-weight:700; box-shadow:0 1px 3px rgba(0,0,0,.18); }
+  .iosSwitch.off { opacity:.5; pointer-events:none; }
+  #typePickerView .iosRow { cursor:pointer; }
+  #typePickerView .checkmark { color:var(--blue); font-weight:800; visibility:hidden; }
+  #typePickerView .checkmark.show { visibility:visible; }
+  .iosCard { background:#fff; border-radius:14px; overflow:hidden; box-shadow: var(--card-shadow); margin:0 0 20px; direction:ltr; }
+  .iosRow { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:13px 16px; border-bottom:1px solid #E5E5EA; min-height:24px; }
+  .iosRow:last-child { border-bottom:none; }
+  .iosLabel { font-size:15px; color:var(--text-primary); flex:0 0 auto; white-space:nowrap; }
+  .iosLabel .req { color:var(--orange-dark); font-size:12px; margin-inline-start:4px; }
+  .iosValue { flex:1; min-width:0; display:flex; justify-content:flex-end; }
+  .iosValue span.plain { color:#9AA0A6; font-size:14.5px; }
+  .iosRow input[type=text], .iosRow input[type=password] {
+    border:none; background:transparent; padding:0; text-align:right; direction:rtl;
+    font-size:14.5px; color:var(--text-secondary); width:100%; box-shadow:none;
+  }
+  .iosRow input[type=text]:focus, .iosRow input[type=password]:focus { box-shadow:none; background:transparent; color:var(--text-primary); }
+  .iosNote { font-size:12px; color:var(--text-secondary); padding:2px 16px 14px; margin:0; }
+  .iosSwitch { position:relative; display:inline-block; width:46px; height:27px; flex:0 0 auto; direction:ltr; }
+  .iosSwitch input { opacity:0; width:0; height:0; position:absolute; }
+  .iosSwitch .slider { position:absolute; inset:0; background:#E5E5EA; border-radius:999px; transition:.2s; cursor:pointer; }
+  .iosSwitch .slider::before { content:''; position:absolute; width:23px; height:23px; left:2px; top:2px; background:#fff; border-radius:50%; transition:.2s; box-shadow:0 1px 3px rgba(0,0,0,.3); }
+  .iosSwitch input:checked + .slider { background:#34C759; }
+  .iosSwitch input:checked + .slider::before { transform:translateX(19px); }
+
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>🛡️ سازنده پروفایل VPN</h1>
+  <p class="sub">نوع VPN را انتخاب کن (L2TP، IKEv2 یا OpenVPN)، مقادیر لازم را وارد کن و دکمه دانلود را بزن تا فایل مناسب (<b>.mobileconfig</b> یا <b>.ovpn</b>) ساخته و دانلود شود. همه‌چیز توی همین مرورگر انجام می‌شود، هیچ اطلاعاتی به سرور ارسال نمی‌شود.</p>
+
+  <div class="typeSwitch">
+    <label id="labelMobileconfig" class="active">
+      <input type="radio" name="vpnType" value="Mobileconfig" checked />
+      <span>L2TP / IKEv2</span>
+    </label>
+    <label id="labelOpenVPN">
+      <input type="radio" name="vpnType" value="OpenVPN" />
+      <span>OpenVPN</span>
+    </label>
+    <label id="labelWindows">
+      <input type="radio" name="vpnType" value="Windows" />
+      <span>Windows</span>
+    </label>
+  </div>
+
+  <div id="mobileconfigWrap">
+    <div class="iosNavBar">
+      <button type="button" class="iosCircleBtn gray" id="iosNavLeftBtn">✕</button>
+      <span class="iosNavTitle" id="iosNavTitleText">Add Configuration</span>
+      <button type="button" class="iosCircleBtn blue" id="iosNavRightBtn">✓</button>
+    </div>
+
+    <div id="mobileMainView">
+      <div class="iosCard">
+        <div class="iosRow" id="typeRow">
+          <span class="iosLabel">Type</span>
+          <span class="iosValue"><span class="plain" id="iosTypeValue">L2TP ›</span></span>
+        </div>
+      </div>
+
+      <div class="iosCard">
+        <div class="iosRow">
+          <span class="iosLabel">Description <span class="req">*</span></span>
+          <span class="iosValue"><input type="text" id="profileName" placeholder="الزامی" /></span>
+        </div>
+        <div class="iosRow">
+          <span class="iosLabel">Server <span class="req">*</span></span>
+          <span class="iosValue"><input type="text" id="serverAddress" placeholder="الزامی" /></span>
+        </div>
+
+        <div id="l2tpFields">
+          <div class="iosRow">
+            <span class="iosLabel">Account</span>
+            <span class="iosValue" id="slotUsernameL2TP"><input type="text" id="username" placeholder="" /></span>
+          </div>
+          <div class="iosRow">
+            <span class="iosLabel">RSA SecurID</span>
+            <label class="iosSwitch off">
+              <input type="checkbox" disabled />
+              <span class="slider"></span>
+            </label>
+          </div>
+          <div class="iosRow">
+            <span class="iosLabel">Password</span>
+            <span class="iosValue" id="slotPasswordL2TP"><input type="text" id="password" placeholder="" /></span>
+          </div>
+          <div class="iosRow">
+            <span class="iosLabel">Secret <span class="req">*</span></span>
+            <span class="iosValue"><input type="text" id="sharedSecret" placeholder="الزامی" /></span>
+          </div>
+        </div>
+
+        <div id="ikev2Fields" class="hidden">
+          <div class="iosRow">
+            <span class="iosLabel">Remote ID <span class="req">*</span></span>
+            <span class="iosValue"><input type="text" id="remoteId" placeholder="الزامی" /></span>
+          </div>
+          <div class="iosRow">
+            <span class="iosLabel">Local ID</span>
+            <span class="iosValue"><input type="text" id="localId" placeholder="" /></span>
+          </div>
+        </div>
+
+        <div class="iosRow">
+          <span class="iosLabel">Send All Traffic</span>
+          <label class="iosSwitch">
+            <input type="checkbox" id="sendAllTraffic" checked />
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+      <p class="iosNote" id="l2tpCredNote">اگر Account یا Password را خالی بگذارید، هر بار هنگام اتصال از شما پرسیده می‌شود. با واردکردن مقدار در اینجا، دیگر پرسیده نمی‌شود و همین مقدار استفاده می‌شود.</p>
+
+      <div id="ikev2AuthSection" class="hidden">
+        <div class="iosSectionLabel">Authentication</div>
+        <div class="iosCard">
+          <div class="iosRow">
+            <span class="iosLabel">User Authentication</span>
+            <span class="iosValue"><span class="plain">Username ›</span></span>
+          </div>
+          <div class="iosRow">
+            <span class="iosLabel">Username</span>
+            <span class="iosValue" id="slotUsernameIKEv2"></span>
+          </div>
+          <div class="iosRow">
+            <span class="iosLabel">Password</span>
+            <span class="iosValue" id="slotPasswordIKEv2"></span>
+          </div>
+        </div>
+        <p class="iosNote" id="ikev2CredNote">اگر Username یا Password را خالی بگذارید، هر بار هنگام اتصال از شما پرسیده می‌شود. با واردکردن مقدار در اینجا، دیگر پرسیده نمی‌شود و همین مقدار استفاده می‌شود.</p>
+      </div>
+
+      <div class="iosSectionLabel">Proxy</div>
+      <div class="iosCard">
+        <div class="iosRow">
+          <div class="iosSegmented">
+            <span class="seg active">Off</span><span class="seg">Manual</span><span class="seg">Auto</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="typePickerView" class="hidden">
+      <div class="iosCard">
+        <div class="iosRow" data-type="IKEv2">
+          <span class="iosLabel">IKEv2</span>
+          <span class="iosValue"><span class="checkmark" id="checkIKEv2">✓</span></span>
+        </div>
+        <div class="iosRow" data-type="L2TP">
+          <span class="iosLabel">L2TP</span>
+          <span class="iosValue"><span class="checkmark" id="checkL2TP">✓</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="openvpnWrap" class="hidden">
+    <fieldset>
+      <legend>اتصال به سرور</legend>
+
+      <div class="row3">
+        <div>
+          <label>آدرس سرور (Remote) <span class="hint">الزامی</span></label>
+          <input type="text" id="remoteHost" placeholder="vpn.example.com" />
+        </div>
+        <div>
+          <label>پورت</label>
+          <input type="number" id="remotePort" placeholder="1194" />
+        </div>
+        <div>
+          <label>پروتکل</label>
+          <select id="proto">
+            <option value="udp">UDP</option>
+            <option value="tcp">TCP</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row2">
+        <div>
+          <label>Device Type</label>
+          <select id="dev">
+            <option value="tun">tun</option>
+            <option value="tap">tap</option>
+          </select>
+        </div>
+        <div>
+          <label>نام پروفایل (برای نام فایل)</label>
+          <input type="text" id="profileName" placeholder="my-vpn" />
+        </div>
+      </div>
+
+      <div class="checkline">
+        <input type="checkbox" id="authUserPass" />
+        <label for="authUserPass">نیاز به نام‌کاربری/رمزعبور هم دارد (auth-user-pass)</label>
+      </div>
+      <div class="checkline">
+        <input type="checkbox" id="redirectGateway" checked />
+        <label for="redirectGateway">ارسال تمام ترافیک از VPN (redirect-gateway def1)</label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Authentication و Cipher</legend>
+
+      <div class="row2">
+        <div>
+          <label>Authentication (auth digest)</label>
+          <select id="auth">
+            <option value="SHA1">sha1</option>
+            <option value="MD5">md5</option>
+            <option value="none">null</option>
+            <option value="SHA256" selected>sha256</option>
+            <option value="SHA512">sha512</option>
+            <option value="SHA384">sha384</option>
+          </select>
+        </div>
+        <div>
+          <label>Cipher</label>
+          <select id="cipher">
+            <option value="BF-CBC">blowfish 128</option>
+            <option value="AES-128-CBC">aes 128 cbc</option>
+            <option value="AES-192-CBC">aes 192 cbc</option>
+            <option value="AES-256-CBC">aes 256 cbc</option>
+            <option value="AES-128-GCM" selected>aes 128 gcm</option>
+            <option value="AES-192-GCM">aes 192 gcm</option>
+            <option value="AES-256-GCM">aes 256 gcm</option>
+            <option value="none">null</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row2">
+        <div>
+          <label>TUN MTU</label>
+          <input type="number" id="tunMtu" placeholder="1400" />
+        </div>
+        <div>
+          <label>mssfix</label>
+          <input type="number" id="mssfix" placeholder="1360" />
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>گواهی���ها و کلید (PEM)</legend>
+
+      <label>CA Certificate <span class="hint">الزامی</span></label>
+      <div class="filerow">
+        <button type="button" class="browse-btn" id="caCertBrowse">انتخاب فایل…</button>
+        <span class="filename" id="caCertFilename">فایلی انتخاب نشده</span>
+        <input type="file" id="caCertFile" accept=".pem,.crt,.cer,.txt" />
+      </div>
+      <textarea id="caCert" placeholder="-----BEGIN CERTIFICATE-----
+...
+-----END CERTIFICATE-----"></textarea>
+
+      <label>Client Certificate <span class="hint">الزامی</span></label>
+      <div class="filerow">
+        <button type="button" class="browse-btn" id="clientCertBrowse">انتخاب فایل…</button>
+        <span class="filename" id="clientCertFilename">فایلی انتخاب نشده</span>
+        <input type="file" id="clientCertFile" accept=".pem,.crt,.cer,.txt" />
+      </div>
+      <textarea id="clientCert" placeholder="-----BEGIN CERTIFICATE-----
+...
+-----END CERTIFICATE-----"></textarea>
+
+      <label>Client Private Key <span class="hint">الزامی — رمزدار یا بدون رمز هر دو قابل انتخاب هستند</span></label>
+      <div class="filerow">
+        <button type="button" class="browse-btn" id="clientKeyBrowse">انتخاب فایل…</button>
+        <span class="filename" id="clientKeyFilename">فایلی انتخاب نشده</span>
+        <input type="file" id="clientKeyFile" accept=".pem,.key,.txt" />
+      </div>
+      <textarea id="clientKey" placeholder="-----BEGIN PRIVATE KEY-----
+...
+-----END PRIVATE KEY-----"></textarea>
+
+      <label>Passphrase کلید خصوصی <span class="hint">اختیاری — فقط اگر کلید بالا رمزدار است</span></label>
+      <input type="password" id="keyPassphrase" placeholder="خالی بذار: موقع اتصال رمز پرسیده می‌شود" />
+      <p class="pem-note">
+        اگر پسورد رو اینجا وارد کنی: کلید همینجا در مرورگر رمزگشایی می‌شود و به‌صورت <b>باز (بدون رمز)</b> داخل فایل ذخیره می‌شود — دیگه موقع اتصال چیزی پرسیده نمی‌شود.<br />
+        اگر خالی بذاری: کلید همان‌طور رمزدار داخل فایل می‌ماند و برنامه VPN موقع اولین اتصال رمز را می‌پرسد.<br />
+        پشتیبانی می‌شود از: کلید رمزدار سنتی PKCS8 (هدر <code>ENCRYPTED PRIVATE KEY</code>، خروجی استاندارد OpenSSL 3.x) و کلید RSA قدیمی (هدر <code>Proc-Type: 4,ENCRYPTED</code>).
+      </p>
+
+      <details>
+        <summary>TLS-Auth / TLS-Crypt Key (اختیاری)</summary>
+        <label>محتوای ta.key <span class="hint">اگر سرور برایت فرستاده، اینجا انتخاب یا paste کن</span></label>
+        <div class="filerow">
+          <button type="button" class="browse-btn" id="tlsKeyBrowse">انتخاب فایل…</button>
+          <span class="filename" id="tlsKeyFilename">فایلی انتخاب نشده</span>
+          <input type="file" id="tlsKeyFile" accept=".key,.pem,.txt" />
+        </div>
+        <textarea id="tlsKey" placeholder="-----BEGIN OpenVPN Static key V1-----
+...
+-----END OpenVPN Static key V1-----"></textarea>
+        <label>نوع استفاده از این کلید</label>
+        <select id="tlsKeyMode">
+          <option value="tls-crypt">tls-crypt</option>
+          <option value="tls-auth">tls-auth (direction 1)</option>
+        </select>
+      </details>
+    </fieldset>
+  </div>
+
+  <div id="windowsWrap" class="hidden">
+    <fieldset>
+      <legend>اطلاعات اتصال</legend>
+
+      <label class="field">نام کانکشن <span class="hint">الزامی — همان نامی که در Network Connections ویندوز دیده می‌شود</span></label>
+      <input type="text" id="winConnName" placeholder="My Windows VPN" />
+
+      <label class="field">آدرس سرور (PhoneNumber) <span class="hint">الزامی</span></label>
+      <input type="text" id="winServerAddress" placeholder="vpn.example.com" />
+    </fieldset>
+
+    <fieldset>
+      <legend>نوع VPN <span class="hint">(Security → Type of VPN)</span></legend>
+
+      <select id="winVpnType">
+        <option value="automatic">Automatic</option>
+        <option value="pptp">PPTP</option>
+        <option value="l2tp" selected>L2TP/IPsec</option>
+        <option value="sstp">SSTP</option>
+        <option value="ikev2">IKEv2</option>
+      </select>
+
+      <div id="winPskField">
+        <label class="field">کلید مشترک / Pre-shared key <span class="hint">برای L2TP/IPsec لازم است</span></label>
+        <input type="text" id="winPsk" placeholder="یک کلید قوی و منحصربه‌فرد" />
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>رمزگذاری داده <span class="hint">(Data encryption)</span></legend>
+
+      <select id="winDataEncryption">
+        <option value="0">بدون رمزگذاری (No encryption allowed)</option>
+        <option value="8" selected>رمزگذاری اختیاری (Optional encryption)</option>
+        <option value="16">نیازمند رمزگذاری (Require encryption)</option>
+        <option value="256">حداکثر قدرت رمزگذاری (Maximum strength)</option>
+      </select>
+      <p class="note">⚠️ فقط گزینهٔ «رمزگذاری اختیاری» روی دستگاه واقعی تست شده و درست کار می‌کند. بقیه گزینه‌ها بر اساس منابع عمومی مایکروسافت تخمین زده شده‌اند و روی دستگاه واقعی امتحان نشده‌اند.</p>
+    </fieldset>
+
+    <fieldset>
+      <legend>احراز هویت <span class="hint">(Security → Authentication)</span></legend>
+
+      <div class="checkline">
+        <input type="checkbox" id="winAuthPap" />
+        <label for="winAuthPap">PAP</label>
+      </div>
+      <div class="checkline">
+        <input type="checkbox" id="winAuthChap" checked />
+        <label for="winAuthChap">CHAP</label>
+      </div>
+      <div class="checkline">
+        <input type="checkbox" id="winAuthMschap2" checked />
+        <label for="winAuthMschap2">MS-CHAP v2</label>
+      </div>
+      <p class="note">⚠️ فقط ترکیب پیش‌فرض یعنی CHAP به‌همراه MS-CHAP v2 بدون PAP، روی دستگاه واقعی تست شده. اگر ترکیب دیگری را امتحان کردی و وصل نشد، یک کانکشن مشابه را دستی در ویندوز بساز و فایل واقعی ایکسپورت‌شده را برایم بفرست تا دقیقش کنم.</p>
+    </fieldset>
+
+    <fieldset>
+      <legend>زمان قطع در بی‌کاری <span class="hint">(Idle time before hanging up)</span></legend>
+
+      <select id="winIdle">
+        <option value="0" selected>هرگز (never)</option>
+        <option value="60">۱ دقیقه</option>
+        <option value="300">۵ دقیقه</option>
+        <option value="600">۱۰ دقیقه</option>
+        <option value="1200">۲۰ دقیقه</option>
+        <option value="1800">۳۰ دقیقه</option>
+        <option value="3600">۱ ساعت</option>
+        <option value="7200">۲ ساعت</option>
+        <option value="14400">۴ ساعت</option>
+        <option value="28800">۸ ساعت</option>
+        <option value="86400">۲۴ ساعت</option>
+      </select>
+      <p class="note">موارد تب شبکه‌سازی (File and Printer Sharing، Client for Microsoft Networks، IPv4، IPv6) همیشه فعال هستند — دقیقاً مطابق همون نمونه‌ای که برایم فرستادی.</p>
+    </fieldset>
+  </div>
+
+  <div class="actions">
+    <button id="generateBtn">تولید و دانلود پروفایل (.mobileconfig)</button>
+    <button id="copyBtn">کپی XML</button>
+  </div>
+
+  <div class="actions" style="margin-top:12px;">
+    <button type="button" id="shareBtn" class="hidden">📤 ارسال مستقیم به برنامه</button>
+  </div>
+
+  <div class="actions" style="margin-top:12px;">
+    <button type="button" id="macScriptBtn" class="hidden">🍎 دانلود اسکریپت نصب برای مک (Terminal)</button>
+  </div>
+
+  <div id="msg"></div>
+
+  <details id="macGuideDetails" class="hidden" style="margin-top:12px;">
+    <summary>🍎 راهنمای نصب روی مک (macOS)</summary>
+    <p class="note">همون فایل <b>.mobileconfig</b> که از این صفحه دانلود می‌کنی روی مک هم مثل آیفون نصب می‌شود; دو روش برای نصبش داری:</p>
+    <p class="note"><b>روش ۱ (گرافیکی):</b> روی فایل دابل‌کلیک کن تا باز شود، بعد از System Settings برو به Privacy &amp; Security ← Profiles و روی پروفایل بزن Install.</p>
+    <p class="note"><b>روش ۲ (ترمینال، بدون کلیک):</b> دکمهٔ «دانلود اسکریپت نصب برای مک» را بزن، بعد داخل Terminal بنویس:<br />
+    <code>chmod +x ~/Downloads/*-install-mac.sh &amp;&amp; ~/Downloads/*-install-mac.sh</code><br />
+    رمز مک رو که پرسید وارد کن; پروفایل خودکار نصب می‌شود.</p>
+  </details>
+
+    <details>
+    <summary>نمایش متن تولیدشده</summary>
+    <textarea id="preview" readonly placeholder="بعد از تولید، متن اینجا نمایش داده می‌شود..."></textarea>
+  </details>
+
+</div>
+
+<script>
+
+/* ===================== Shared helpers ===================== */
+function showMsg(text, kind) {
+  var el = document.getElementById('msg');
+  el.textContent = text;
+  el.className = kind;
+}
+
+var currentMobileType = 'L2TP';
+function currentType() {
+  var topVal = document.querySelector('input[name="vpnType"]:checked').value;
+  if (topVal === 'Mobileconfig') return currentMobileType;
+  return topVal;
+}
+
+function updatePlaceholders(type) {
+  var profileNameEl = document.getElementById('profileName');
+  profileNameEl.placeholder = (type === 'IKEv2') ? 'My IKEv2 VPN' : 'My L2TP VPN';
+}
+
+function updateWinPskVisibility() {
+  var vpnType = document.getElementById('winVpnType').value;
+  document.getElementById('winPskField').classList.toggle('hidden', vpnType !== 'l2tp');
+}
+
+function moveIntoSlot(elId, slotId) {
+  var el = document.getElementById(elId);
+  var slot = document.getElementById(slotId);
+  if (el && slot && el.parentElement !== slot) slot.appendChild(el);
+}
+
+function updateTypeCheckmarks() {
+  document.getElementById('checkL2TP').classList.toggle('show', currentMobileType === 'L2TP');
+  document.getElementById('checkIKEv2').classList.toggle('show', currentMobileType === 'IKEv2');
+}
+
+function showTypePicker() {
+  document.getElementById('mobileMainView').classList.add('hidden');
+  document.getElementById('typePickerView').classList.remove('hidden');
+  document.getElementById('iosNavTitleText').textContent = 'Type';
+  document.getElementById('iosNavLeftBtn').textContent = '‹';
+  document.getElementById('iosNavRightBtn').classList.add('hidden');
+  updateTypeCheckmarks();
+}
+
+function hideTypePicker() {
+  document.getElementById('typePickerView').classList.add('hidden');
+  document.getElementById('mobileMainView').classList.remove('hidden');
+  document.getElementById('iosNavTitleText').textContent = 'Add Configuration';
+  document.getElementById('iosNavLeftBtn').textContent = '✕';
+  document.getElementById('iosNavRightBtn').classList.remove('hidden');
+}
+
+function resetMobileFields() {
+  ['profileName', 'serverAddress', 'sharedSecret', 'remoteId', 'localId', 'username', 'password'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) el.value = '';
+  });
+  var sendAllEl = document.getElementById('sendAllTraffic');
+  if (sendAllEl) sendAllEl.checked = true;
+  showMsg('', '');
+}
+
+function updateTypeUI() {
+  var type = currentType();
+  var isMobileconfig = (type === 'L2TP' || type === 'IKEv2');
+
+  document.getElementById('mobileconfigWrap').classList.toggle('hidden', !isMobileconfig);
+  document.getElementById('openvpnWrap').classList.toggle('hidden', type !== 'OpenVPN');
+  document.getElementById('windowsWrap').classList.toggle('hidden', type !== 'Windows');
+
+  document.getElementById('l2tpFields').classList.toggle('hidden', type !== 'L2TP');
+  document.getElementById('ikev2Fields').classList.toggle('hidden', type !== 'IKEv2');
+  document.getElementById('ikev2AuthSection').classList.toggle('hidden', type !== 'IKEv2');
+  document.getElementById('l2tpCredNote').classList.toggle('hidden', type !== 'L2TP');
+  if (type === 'IKEv2') {
+    moveIntoSlot('username', 'slotUsernameIKEv2');
+    moveIntoSlot('password', 'slotPasswordIKEv2');
+  } else {
+    moveIntoSlot('username', 'slotUsernameL2TP');
+    moveIntoSlot('password', 'slotPasswordL2TP');
+  }
+
+  document.getElementById('labelMobileconfig').classList.toggle('active', isMobileconfig);
+  document.getElementById('labelOpenVPN').classList.toggle('active', type === 'OpenVPN');
+  document.getElementById('labelWindows').classList.toggle('active', type === 'Windows');
+
+  if (type === 'Windows') updateWinPskVisibility();
+
+  var generateBtn = document.getElementById('generateBtn');
+  var copyBtn = document.getElementById('copyBtn');
+  if (type === 'OpenVPN') {
+    generateBtn.textContent = 'تولید و دانلود فایل (.ovpn)';
+    copyBtn.textContent = 'کپی متن';
+  } else if (type === 'Windows') {
+    generateBtn.textContent = 'تولید و دانلود فایل (.pbk)';
+    copyBtn.textContent = 'کپی متن';
+  } else {
+    generateBtn.textContent = 'تولید و دانلود پروفایل (.mobileconfig)';
+    copyBtn.textContent = 'کپی XML';
+  }
+
+  var shareBtnEl = document.getElementById('shareBtn');
+  var canShareAtAll = !!(navigator.share && navigator.canShare);
+  shareBtnEl.classList.toggle('hidden', !(canShareAtAll && type === 'OpenVPN'));
+
+  document.getElementById('macScriptBtn').classList.toggle('hidden', !isMobileconfig);
+  document.getElementById('macGuideDetails').classList.toggle('hidden', !isMobileconfig);
+
+  var iosTypeValueEl = document.getElementById('iosTypeValue');
+  if (iosTypeValueEl) iosTypeValueEl.textContent = (isMobileconfig ? type : '—') + ' \u203A';
+}
+
+document.querySelectorAll('input[name="vpnType"]').forEach(function (el) {
+  el.addEventListener('change', updateTypeUI);
+});
+
+document.getElementById('winVpnType').addEventListener('change', updateWinPskVisibility);
+
+/* ===================== Mobileconfig (L2TP / IKEv2) builders ===================== */
+function escapeXml(str) {
+  return String(str ?? '').replace(/[&<>"']/g, function (c) {
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&apos;' }[c];
+  });
+}
+
+function makeUuid() {
+  if (window.crypto && crypto.randomUUID) return crypto.randomUUID().toUpperCase();
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+    var r = (Math.random() * 16) | 0, v = c === 'x' ? r : (r & 0x3) | 0x8;
+    return v.toString(16);
+  }).toUpperCase();
+}
+
+function slugifyProfileName(text) {
+  var slug = String(text || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  return slug || 'vpn';
+}
+
+function readMobileconfigValues() {
+  var vpnType = currentType();
+  var profileName = document.getElementById('profileName').value.trim() || (vpnType === 'IKEv2' ? 'My IKEv2 VPN' : 'My L2TP VPN');
+  var slug = slugifyProfileName(profileName);
+  return {
+    vpnType: vpnType,
+    displayName: profileName,
+    description: profileName + ' VPN Profile for iOS',
+    organization: 'My Organization',
+    connectionName: profileName,
+    baseIdentifier: 'com.vpn.' + slug,
+    serverAddress: document.getElementById('serverAddress').value.trim(),
+    sharedSecret: document.getElementById('sharedSecret').value,
+    remoteId: document.getElementById('remoteId').value.trim(),
+    localId: document.getElementById('localId').value.trim(),
+    username: document.getElementById('username').value,
+    password: document.getElementById('password').value,
+    sendAllTraffic: document.getElementById('sendAllTraffic').checked,
+  };
+}
+
+function commonHeader(v, profileUuid, profileIdentifier) {
+  return '<?xml version="1.0" encoding="UTF-8"?>\n' +
+'<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">\n' +
+'<plist version="1.0">\n' +
+'<dict>\n' +
+'\t<key>PayloadDisplayName</key>\n' +
+'\t<string>' + escapeXml(v.displayName) + '</string>\n' +
+'\t<key>PayloadDescription</key>\n' +
+'\t<string>' + escapeXml(v.description) + '</string>\n' +
+'\t<key>PayloadIdentifier</key>\n' +
+'\t<string>' + escapeXml(profileIdentifier) + '</string>\n' +
+'\t<key>PayloadOrganization</key>\n' +
+'\t<string>' + escapeXml(v.organization) + '</string>\n' +
+'\t<key>PayloadType</key>\n' +
+'\t<string>Configuration</string>\n' +
+'\t<key>PayloadUUID</key>\n' +
+'\t<string>' + profileUuid + '</string>\n' +
+'\t<key>PayloadVersion</key>\n' +
+'\t<integer>1</integer>\n' +
+'\t<key>PayloadContent</key>\n' +
+'\t<array>\n' +
+'\t\t<dict>\n';
+}
+
+function commonVpnHead(v, vpnIdentifier, vpnUuid, vpnTypeString) {
+  return '\t\t\t<key>PayloadType</key>\n' +
+'\t\t\t<string>com.apple.vpn.managed</string>\n' +
+'\t\t\t<key>PayloadVersion</key>\n' +
+'\t\t\t<integer>1</integer>\n' +
+'\t\t\t<key>PayloadIdentifier</key>\n' +
+'\t\t\t<string>' + escapeXml(vpnIdentifier) + '</string>\n' +
+'\t\t\t<key>PayloadUUID</key>\n' +
+'\t\t\t<string>' + vpnUuid + '</string>\n' +
+'\t\t\t<key>PayloadDisplayName</key>\n' +
+'\t\t\t<string>' + escapeXml(v.connectionName) + '</string>\n' +
+'\t\t\t<key>UserDefinedName</key>\n' +
+'\t\t\t<string>' + escapeXml(v.connectionName) + '</string>\n' +
+'\t\t\t<key>VPNType</key>\n' +
+'\t\t\t<string>' + vpnTypeString + '</string>\n';
+}
+
+function commonFooter(v) {
+  return '\t\t\t<key>OverridePrimary</key>\n' +
+'\t\t\t<' + (v.sendAllTraffic ? 'true' : 'false') + '/>\n' +
+'\t\t\t<key>Proxies</key>\n' +
+'\t\t\t<dict>\n' +
+'\t\t\t\t<key>HTTPEnable</key>\n' +
+'\t\t\t\t<integer>0</integer>\n' +
+'\t\t\t\t<key>HTTPSEnable</key>\n' +
+'\t\t\t\t<integer>0</integer>\n' +
+'\t\t\t</dict>\n' +
+'\t\t</dict>\n' +
+'\t</array>\n' +
+'</dict>\n' +
+'</plist>\n';
+}
+
+function buildL2tpXml(v, profileUuid, vpnUuid, profileIdentifier, vpnIdentifier) {
+  return commonHeader(v, profileUuid, profileIdentifier) +
+    commonVpnHead(v, vpnIdentifier, vpnUuid, 'L2TP') +
+'\t\t\t<key>IPSec</key>\n' +
+'\t\t\t<dict>\n' +
+'\t\t\t\t<key>AuthenticationMethod</key>\n' +
+'\t\t\t\t<string>SharedSecret</string>\n' +
+'\t\t\t\t<key>SharedSecret</key>\n' +
+'\t\t\t\t<string>' + escapeXml(v.sharedSecret) + '</string>\n' +
+'\t\t\t</dict>\n' +
+'\t\t\t<key>PPP</key>\n' +
+'\t\t\t<dict>\n' +
+'\t\t\t\t<key>CommRemoteAddress</key>\n' +
+'\t\t\t\t<string>' + escapeXml(v.serverAddress) + '</string>\n' +
+'\t\t\t\t<key>AuthenticationMethod</key>\n' +
+'\t\t\t\t<string>Password</string>\n' +
+'\t\t\t\t<key>AuthName</key>\n' +
+'\t\t\t\t<string>' + escapeXml(v.username) + '</string>\n' +
+'\t\t\t\t<key>AuthPassword</key>\n' +
+'\t\t\t\t<string>' + escapeXml(v.password) + '</string>\n' +
+'\t\t\t</dict>\n' +
+    commonFooter(v);
+}
+
+function buildIkev2Xml(v, profileUuid, vpnUuid, profileIdentifier, vpnIdentifier) {
+  var remoteId = v.remoteId || v.serverAddress;
+  return commonHeader(v, profileUuid, profileIdentifier) +
+    commonVpnHead(v, vpnIdentifier, vpnUuid, 'IKEv2') +
+'\t\t\t<key>IKEv2</key>\n' +
+'\t\t\t<dict>\n' +
+'\t\t\t\t<key>RemoteAddress</key>\n' +
+'\t\t\t\t<string>' + escapeXml(v.serverAddress) + '</string>\n' +
+'\t\t\t\t<key>RemoteIdentifier</key>\n' +
+'\t\t\t\t<string>' + escapeXml(remoteId) + '</string>\n' +
+'\t\t\t\t<key>LocalIdentifier</key>\n' +
+'\t\t\t\t<string>' + escapeXml(v.localId) + '</string>\n' +
+'\t\t\t\t<key>AuthenticationMethod</key>\n' +
+'\t\t\t\t<string>None</string>\n' +
+'\t\t\t\t<key>ExtendedAuthEnabled</key>\n' +
+'\t\t\t\t<true/>\n' +
+'\t\t\t\t<key>AuthName</key>\n' +
+'\t\t\t\t<string>' + escapeXml(v.username) + '</string>\n' +
+'\t\t\t\t<key>AuthPassword</key>\n' +
+'\t\t\t\t<string>' + escapeXml(v.password) + '</string>\n' +
+'\t\t\t\t<key>OnDemandEnabled</key>\n' +
+'\t\t\t\t<integer>0</integer>\n' +
+'\t\t\t</dict>\n' +
+    commonFooter(v);
+}
+
+function buildProfileXml(v) {
+  var profileUuid = makeUuid();
+  var vpnUuid = makeUuid();
+  var profileIdentifier = v.baseIdentifier + '.profile';
+  var vpnIdentifier = v.baseIdentifier + '.config';
+  if (v.vpnType === 'IKEv2') {
+    return buildIkev2Xml(v, profileUuid, vpnUuid, profileIdentifier, vpnIdentifier);
+  }
+  return buildL2tpXml(v, profileUuid, vpnUuid, profileIdentifier, vpnIdentifier);
+}
+
+function validateMobileconfig(v) {
+  if (!v.serverAddress) return 'لطفاً آدرس سرور (RemoteAddress) را وارد کن.';
+  if (v.vpnType === 'L2TP' && !v.sharedSecret) return 'لطفاً کلید مشترک (Secret) را وارد کن.';
+  return null;
+}
+
+/* ===================== OpenVPN builder + crypto ===================== */
+function add32(a, b) { return (a + b) & 0xffffffff; }
+function cmn(q, a, b, x, s, t) { a = add32(add32(a, q), add32(x, t)); return add32(((a << s) | (a >>> (32 - s))), b); }
+function ffx(a,b,c,d,x,s,t){return cmn((b&c)|(~b&d),a,b,x,s,t);}
+function ggx(a,b,c,d,x,s,t){return cmn((b&d)|(c&~d),a,b,x,s,t);}
+function hhx(a,b,c,d,x,s,t){return cmn(b^c^d,a,b,x,s,t);}
+function iix(a,b,c,d,x,s,t){return cmn(c^(b|~d),a,b,x,s,t);}
+function md5cycle(x,k){
+  let a=x[0], b=x[1], c=x[2], d=x[3];
+  a=ffx(a,b,c,d,k[0],7,-680876936); d=ffx(d,a,b,c,k[1],12,-389564586); c=ffx(c,d,a,b,k[2],17,606105819); b=ffx(b,c,d,a,k[3],22,-1044525330);
+  a=ffx(a,b,c,d,k[4],7,-176418897); d=ffx(d,a,b,c,k[5],12,1200080426); c=ffx(c,d,a,b,k[6],17,-1473231341); b=ffx(b,c,d,a,k[7],22,-45705983);
+  a=ffx(a,b,c,d,k[8],7,1770035416); d=ffx(d,a,b,c,k[9],12,-1958414417); c=ffx(c,d,a,b,k[10],17,-42063); b=ffx(b,c,d,a,k[11],22,-1990404162);
+  a=ffx(a,b,c,d,k[12],7,1804603682); d=ffx(d,a,b,c,k[13],12,-40341101); c=ffx(c,d,a,b,k[14],17,-1502002290); b=ffx(b,c,d,a,k[15],22,1236535329);
+  a=ggx(a,b,c,d,k[1],5,-165796510); d=ggx(d,a,b,c,k[6],9,-1069501632); c=ggx(c,d,a,b,k[11],14,643717713); b=ggx(b,c,d,a,k[0],20,-373897302);
+  a=ggx(a,b,c,d,k[5],5,-701558691); d=ggx(d,a,b,c,k[10],9,38016083); c=ggx(c,d,a,b,k[15],14,-660478335); b=ggx(b,c,d,a,k[4],20,-405537848);
+  a=ggx(a,b,c,d,k[9],5,568446438); d=ggx(d,a,b,c,k[14],9,-1019803690); c=ggx(c,d,a,b,k[3],14,-187363961); b=ggx(b,c,d,a,k[8],20,1163531501);
+  a=ggx(a,b,c,d,k[13],5,-1444681467); d=ggx(d,a,b,c,k[2],9,-51403784); c=ggx(c,d,a,b,k[7],14,1735328473); b=ggx(b,c,d,a,k[12],20,-1926607734);
+  a=hhx(a,b,c,d,k[5],4,-378558); d=hhx(d,a,b,c,k[8],11,-2022574463); c=hhx(c,d,a,b,k[11],16,1839030562); b=hhx(b,c,d,a,k[14],23,-35309556);
+  a=hhx(a,b,c,d,k[1],4,-1530992060); d=hhx(d,a,b,c,k[4],11,1272893353); c=hhx(c,d,a,b,k[7],16,-155497632); b=hhx(b,c,d,a,k[10],23,-1094730640);
+  a=hhx(a,b,c,d,k[13],4,681279174); d=hhx(d,a,b,c,k[0],11,-358537222); c=hhx(c,d,a,b,k[3],16,-722521979); b=hhx(b,c,d,a,k[6],23,76029189);
+  a=hhx(a,b,c,d,k[9],4,-640364487); d=hhx(d,a,b,c,k[12],11,-421815835); c=hhx(c,d,a,b,k[15],16,530742520); b=hhx(b,c,d,a,k[2],23,-995338651);
+  a=iix(a,b,c,d,k[0],6,-198630844); d=iix(d,a,b,c,k[7],10,1126891415); c=iix(c,d,a,b,k[14],15,-1416354905); b=iix(b,c,d,a,k[5],21,-57434055);
+  a=iix(a,b,c,d,k[12],6,1700485571); d=iix(d,a,b,c,k[3],10,-1894986606); c=iix(c,d,a,b,k[10],15,-1051523); b=iix(b,c,d,a,k[1],21,-2054922799);
+  a=iix(a,b,c,d,k[8],6,1873313359); d=iix(d,a,b,c,k[15],10,-30611744); c=iix(c,d,a,b,k[6],15,-1560198380); b=iix(b,c,d,a,k[13],21,1309151649);
+  a=iix(a,b,c,d,k[4],6,-145523070); d=iix(d,a,b,c,k[11],10,-1120210379); c=iix(c,d,a,b,k[2],15,718787259); b=iix(b,c,d,a,k[9],21,-343485551);
+  x[0]=add32(a,x[0]); x[1]=add32(b,x[1]); x[2]=add32(c,x[2]); x[3]=add32(d,x[3]);
+}
+function md5blk(bytes,offset){
+  const blks=new Array(16);
+  for (let i=0;i<16;i++){ const o=offset+i*4; blks[i]=(bytes[o]|(bytes[o+1]<<8)|(bytes[o+2]<<16)|(bytes[o+3]<<24)); }
+  return blks;
+}
+function md5(bytes){
+  const n=bytes.length;
+  const state=[1732584193,-271733879,-1732584194,271733878];
+  let i=0;
+  for (; i+64<=n; i+=64) md5cycle(state, md5blk(bytes,i));
+  const rem=n-i;
+  const totalLen=(rem+9<=64)?64:128;
+  const tail=new Uint8Array(totalLen);
+  tail.set(bytes.subarray(i));
+  tail[rem]=0x80;
+  const view=new DataView(tail.buffer);
+  const bitLenLow=(n*8)>>>0;
+  view.setUint32(totalLen-8, bitLenLow, true);
+  view.setUint32(totalLen-4, Math.floor(n/0x20000000), true);
+  for (let o=0;o<totalLen;o+=64) md5cycle(state, md5blk(tail,o));
+  const out=new Uint8Array(16);
+  const ov=new DataView(out.buffer);
+  ov.setUint32(0, state[0]>>>0, true);
+  ov.setUint32(4, state[1]>>>0, true);
+  ov.setUint32(8, state[2]>>>0, true);
+  ov.setUint32(12, state[3]>>>0, true);
+  return out;
+}
+
+function concatBytes(...arrs) {
+  const total = arrs.reduce((s,a)=>s+a.length,0);
+  const out = new Uint8Array(total);
+  let o=0;
+  for (const a of arrs) { out.set(a,o); o+=a.length; }
+  return out;
+}
+function hexToBytes(hex){
+  const clean = hex.trim();
+  const out=new Uint8Array(clean.length/2);
+  for (let i=0;i<out.length;i++) out[i]=parseInt(clean.substr(i*2,2),16);
+  return out;
+}
+
+async function decryptLegacyKey(pem, passphrase) {
+  const dekMatch = pem.match(/DEK-Info:\s*([A-Za-z0-9-]+),([0-9A-Fa-f]+)/);
+  if (!dekMatch) throw new Error('DEK-Info پیدا نشد');
+  const cipherName = dekMatch[1].toUpperCase();
+  const fullIv = hexToBytes(dekMatch[2]);
+  const cipherMap = {
+    'AES-128-CBC': 16,
+    'AES-192-CBC': 24,
+    'AES-256-CBC': 32,
+  };
+  const keyLen = cipherMap[cipherName];
+  if (!keyLen) throw new Error('الگوریتم رمزنگاری پشتیبانی‌نشده: ' + cipherName);
+
+  const kdfSalt = fullIv.slice(0, 8);
+  const passBytes = new TextEncoder().encode(passphrase);
+  let dPrev = new Uint8Array(0);
+  let result = new Uint8Array(0);
+  while (result.length < keyLen) {
+    const d = md5(concatBytes(dPrev, passBytes, kdfSalt));
+    result = concatBytes(result, d);
+    dPrev = d;
+  }
+  const key = result.slice(0, keyLen);
+
+  const labelMatch = pem.match(/-----BEGIN ([A-Z0-9 ]+)-----/);
+  const label = labelMatch ? labelMatch[1] : 'RSA PRIVATE KEY';
+  const b64 = pem.replace(/-----BEGIN[^-]+-----/, '').replace(/-----END[^-]+-----/, '')
+    .replace(/Proc-Type:.*\n/, '').replace(/DEK-Info:.*\n/, '').replace(/\s+/g, '');
+  const encryptedBytes = Uint8Array.from(atob(b64), c => c.charCodeAt(0));
+
+  const aesKey = await crypto.subtle.importKey('raw', key, { name: 'AES-CBC' }, false, ['decrypt']);
+  const plainBuf = await crypto.subtle.decrypt({ name: 'AES-CBC', iv: fullIv }, aesKey, encryptedBytes);
+  return { der: new Uint8Array(plainBuf), label };
+}
+
+function readTLV(buf, offset) {
+  const tag = buf[offset];
+  const lenByte = buf[offset + 1];
+  let lenOffset = offset + 2;
+  let length;
+  if (lenByte & 0x80) {
+    const numBytes = lenByte & 0x7f;
+    length = 0;
+    for (let i=0;i<numBytes;i++) length = (length << 8) | buf[lenOffset + i];
+    lenOffset += numBytes;
+  } else {
+    length = lenByte;
+  }
+  const valueStart = lenOffset;
+  const valueEnd = valueStart + length;
+  return { tag, length, valueStart, valueEnd, nextOffset: valueEnd };
+}
+function readOid(buf, start, end) {
+  const parts = [];
+  const first = buf[start];
+  parts.push(Math.floor(first / 40));
+  parts.push(first % 40);
+  let val = 0;
+  for (let i=start+1;i<end;i++) {
+    val = (val << 7) | (buf[i] & 0x7f);
+    if (!(buf[i] & 0x80)) { parts.push(val); val = 0; }
+  }
+  return parts.join('.');
+}
+function readInt(buf, start, end) {
+  let val = 0;
+  for (let i=start;i<end;i++) val = (val * 256) + buf[i];
+  return val;
+}
+
+const OID_PBES2 = '1.2.840.113549.1.5.13';
+const OID_PBKDF2 = '1.2.840.113549.1.5.12';
+const PRF_OIDS = {
+  '1.2.840.113549.2.7': 'SHA-1',
+  '1.2.840.113549.2.9': 'SHA-256',
+  '1.2.840.113549.2.10': 'SHA-384',
+  '1.2.840.113549.2.11': 'SHA-512',
+};
+const CIPHER_OIDS = {
+  '2.16.840.1.101.3.4.1.2': { keyLen: 16 },
+  '2.16.840.1.101.3.4.1.22': { keyLen: 24 },
+  '2.16.840.1.101.3.4.1.42': { keyLen: 32 },
+};
+
+function parsePkcs8Encrypted(der) {
+  const outer = readTLV(der, 0);
+  const algIdTlv = readTLV(der, outer.valueStart);
+  const encDataTlv = readTLV(der, algIdTlv.nextOffset);
+
+  const algOidTlv = readTLV(der, algIdTlv.valueStart);
+  const algOid = readOid(der, algOidTlv.valueStart, algOidTlv.valueEnd);
+  if (algOid !== OID_PBES2) throw new Error('الگوریتم رمزنگاری پشتیبانی‌نشده (فقط PBES2)');
+  const paramsTlv = readTLV(der, algOidTlv.nextOffset);
+
+  const kdfAlgIdTlv = readTLV(der, paramsTlv.valueStart);
+  const encSchemeTlv = readTLV(der, kdfAlgIdTlv.nextOffset);
+
+  const kdfOidTlv = readTLV(der, kdfAlgIdTlv.valueStart);
+  const kdfOid = readOid(der, kdfOidTlv.valueStart, kdfOidTlv.valueEnd);
+  if (kdfOid !== OID_PBKDF2) throw new Error('فقط PBKDF2 پشتیبانی می‌شود');
+  const pbkdf2ParamsTlv = readTLV(der, kdfOidTlv.nextOffset);
+
+  let cursor = pbkdf2ParamsTlv.valueStart;
+  const saltTlv = readTLV(der, cursor);
+  const salt = der.slice(saltTlv.valueStart, saltTlv.valueEnd);
+  cursor = saltTlv.nextOffset;
+  const iterTlv = readTLV(der, cursor);
+  const iterations = readInt(der, iterTlv.valueStart, iterTlv.valueEnd);
+  cursor = iterTlv.nextOffset;
+
+  let prfHash = 'SHA-1';
+  if (cursor < pbkdf2ParamsTlv.valueEnd) {
+    const nextTlv = readTLV(der, cursor);
+    if (nextTlv.tag === 0x02) cursor = nextTlv.nextOffset;
+    if (cursor < pbkdf2ParamsTlv.valueEnd) {
+      const prfTlv = readTLV(der, cursor);
+      if (prfTlv.tag === 0x30) {
+        const prfOidTlv = readTLV(der, prfTlv.valueStart);
+        const prfOid = readOid(der, prfOidTlv.valueStart, prfOidTlv.valueEnd);
+        prfHash = PRF_OIDS[prfOid] || 'SHA-1';
+      }
+    }
+  }
+
+  const encOidTlv = readTLV(der, encSchemeTlv.valueStart);
+  const encOid = readOid(der, encOidTlv.valueStart, encOidTlv.valueEnd);
+  const cipherInfo = CIPHER_OIDS[encOid];
+  if (!cipherInfo) throw new Error('الگوریتم رمزنگاری پشتیبانی‌نشده: ' + encOid);
+  const ivTlv = readTLV(der, encOidTlv.nextOffset);
+  const iv = der.slice(ivTlv.valueStart, ivTlv.valueEnd);
+
+  const encryptedData = der.slice(encDataTlv.valueStart, encDataTlv.valueEnd);
+
+  return { salt, iterations, prfHash, keyLen: cipherInfo.keyLen, iv, encryptedData };
+}
+
+function pemToDer(pem) {
+  const b64 = pem.replace(/-----BEGIN[^-]+-----/, '').replace(/-----END[^-]+-----/, '').replace(/\s+/g, '');
+  return Uint8Array.from(atob(b64), c => c.charCodeAt(0));
+}
+
+async function decryptPkcs8Key(pem, passphrase) {
+  const der = pemToDer(pem);
+  const info = parsePkcs8Encrypted(der);
+  const passBytes = new TextEncoder().encode(passphrase);
+  const keyMaterial = await crypto.subtle.importKey('raw', passBytes, { name: 'PBKDF2' }, false, ['deriveBits']);
+  const derivedBits = await crypto.subtle.deriveBits(
+    { name: 'PBKDF2', salt: info.salt, iterations: info.iterations, hash: info.prfHash },
+    keyMaterial,
+    info.keyLen * 8,
+  );
+  const aesKey = await crypto.subtle.importKey('raw', derivedBits, { name: 'AES-CBC' }, false, ['decrypt']);
+  const plainBuf = await crypto.subtle.decrypt({ name: 'AES-CBC', iv: info.iv }, aesKey, info.encryptedData);
+  return { der: new Uint8Array(plainBuf), label: 'PRIVATE KEY' };
+}
+
+function bytesToBase64(bytes) {
+  let binary = '';
+  for (let i=0;i<bytes.length;i++) binary += String.fromCharCode(bytes[i]);
+  return btoa(binary);
+}
+function derToPem(der, label) {
+  const b64 = bytesToBase64(der);
+  const lines = b64.match(/.{1,64}/g).join('\n');
+  return `-----BEGIN ${label}-----\n${lines}\n-----END ${label}-----`;
+}
+
+async function resolveClientKey(rawKey, passphrase) {
+  const key = normalizePem(rawKey);
+  const isPkcs8Encrypted = /BEGIN ENCRYPTED PRIVATE KEY/.test(key);
+  const isLegacyEncrypted = /Proc-Type:\s*4,ENCRYPTED/.test(key);
+
+  if (!passphrase) {
+    return key;
+  }
+  if (isPkcs8Encrypted) {
+    const { der, label } = await decryptPkcs8Key(key, passphrase);
+    return derToPem(der, label);
+  }
+  if (isLegacyEncrypted) {
+    const { der, label } = await decryptLegacyKey(key, passphrase);
+    return derToPem(der, label);
+  }
+  return key;
+}
+
+function normalizePem(text) {
+  return String(text ?? '')
+    .replace(/\r\n/g, '\n')
+    .replace(/\r/g, '\n')
+    .trim();
+}
+
+function wireFileInput(browseBtnId, fileInputId, textareaId, filenameId) {
+  const browseBtn = document.getElementById(browseBtnId);
+  const fileInput = document.getElementById(fileInputId);
+  const textarea = document.getElementById(textareaId);
+  const filenameEl = document.getElementById(filenameId);
+
+  browseBtn.addEventListener('click', () => fileInput.click());
+
+  fileInput.addEventListener('change', async () => {
+    const file = fileInput.files && fileInput.files[0];
+    if (!file) return;
+    try {
+      const text = await file.text();
+      textarea.value = text;
+      filenameEl.textContent = file.name;
+      filenameEl.classList.add('has-file');
+    } catch (e) {
+      showMsg('خواندن فایل با خطا مواجه شد: ' + e.message, 'err');
+    }
+  });
+}
+
+function readOvpnValues() {
+  return {
+    remoteHost: document.getElementById('remoteHost').value.trim(),
+    remotePort: document.getElementById('remotePort').value.trim() || '1194',
+    proto: document.getElementById('proto').value,
+    dev: document.getElementById('dev').value,
+    profileName: document.getElementById('profileName').value.trim() || 'my-vpn',
+    authUserPass: document.getElementById('authUserPass').checked,
+    redirectGateway: document.getElementById('redirectGateway').checked,
+    caCert: normalizePem(document.getElementById('caCert').value),
+    clientCert: normalizePem(document.getElementById('clientCert').value),
+    clientKeyRaw: document.getElementById('clientKey').value,
+    keyPassphrase: document.getElementById('keyPassphrase').value,
+    tlsKey: normalizePem(document.getElementById('tlsKey').value),
+    tlsKeyMode: document.getElementById('tlsKeyMode').value,
+    cipher: document.getElementById('cipher').value,
+    auth: document.getElementById('auth').value,
+    tunMtu: document.getElementById('tunMtu').value.trim(),
+    mssfix: document.getElementById('mssfix').value.trim(),
+  };
+}
+
+function buildOvpn(v, resolvedClientKey) {
+  const lines = [];
+  lines.push('client');
+  lines.push('dev ' + v.dev);
+  lines.push('proto ' + v.proto);
+  lines.push('remote ' + v.remoteHost + ' ' + v.remotePort);
+  lines.push('resolv-retry infinite');
+  lines.push('nobind');
+  if (v.authUserPass) lines.push('auth-user-pass');
+  lines.push('');
+  lines.push('cipher ' + v.cipher);
+  lines.push('auth ' + v.auth);
+  lines.push('remote-cert-tls server');
+  lines.push('');
+  if (v.tunMtu) lines.push('tun-mtu ' + v.tunMtu);
+  if (v.mssfix) lines.push('mssfix ' + v.mssfix);
+  lines.push('');
+  lines.push('persist-key');
+  lines.push('persist-tun');
+  lines.push('verb 3');
+  lines.push('');
+  if (v.redirectGateway) {
+    lines.push('redirect-gateway def1');
+    lines.push('');
+  }
+
+  lines.push('<ca>');
+  lines.push(v.caCert);
+  lines.push('</ca>');
+  lines.push('<cert>');
+  lines.push(v.clientCert);
+  lines.push('</cert>');
+  lines.push('<key>');
+  lines.push(resolvedClientKey);
+  lines.push('</key>');
+
+  if (v.tlsKey) {
+    if (v.tlsKeyMode === 'tls-crypt') {
+      lines.push('<tls-crypt>');
+      lines.push(v.tlsKey);
+      lines.push('</tls-crypt>');
+    } else {
+      lines.push('key-direction 1');
+      lines.push('<tls-auth>');
+      lines.push(v.tlsKey);
+      lines.push('</tls-auth>');
+    }
+  }
+
+  const text = lines.join('\n') + '\n';
+  return text.replace(/\n/g, '\r\n');
+}
+
+function validateOvpn(v) {
+  if (!v.remoteHost) return 'لطفاً آدرس سرور (Remote) را وارد کن.';
+  if (!v.caCert || !v.caCert.includes('BEGIN CERTIFICATE')) return 'CA Certificate معتبر وارد نشده (باید شامل BEGIN CERTIFICATE باشد).';
+  if (!v.clientCert || !v.clientCert.includes('BEGIN CERTIFICATE')) return 'Client Certificate معتبر وارد نشده.';
+  const key = normalizePem(v.clientKeyRaw);
+  if (!key || !/BEGIN (RSA |EC |ENCRYPTED )?PRIVATE KEY/.test(key)) return 'Client Private Key معتبر وارد نشده.';
+  return null;
+}
+
+/* ===================== Windows (.pbk) builder ===================== */
+/*
+  NOTE ON CONFIDENCE: the L2TP/IPsec branch below (VpnStrategy=3, ExcludedProtocols=2,
+  DataEncryption=8, AuthRestrictions=544, CustomAuthKey=26, CHAP+MS-CHAPv2) is copied
+  exactly from a real, working Windows VPN export. Other VPN types / encryption levels /
+  authentication combinations are best-effort values based on public documentation and
+  community samples and have NOT been verified on a real device.
+*/
+var WIN_VPN_TYPE_MAP = {
+  automatic: { vpnStrategy: 0, excludedProtocols: 0, device: 'WAN Miniport (IKEv2)' },
+  pptp:      { vpnStrategy: 1, excludedProtocols: 0, device: 'WAN Miniport (PPTP)' },
+  l2tp:      { vpnStrategy: 3, excludedProtocols: 2, device: 'WAN Miniport (L2TP)' },
+  sstp:      { vpnStrategy: 5, excludedProtocols: 0, device: 'WAN Miniport (SSTP)' },
+  ikev2:     { vpnStrategy: 7, excludedProtocols: 0, device: 'WAN Miniport (IKEv2)' }
+};
+
+function pbkSafeName(text) {
+  return String(text || '').replace(/[\[\]\r\n]/g, '').trim();
+}
+
+function readWindowsValues() {
+  return {
+    connectionName: document.getElementById('winConnName').value.trim() || 'My Windows VPN',
+    serverAddress: document.getElementById('winServerAddress').value.trim(),
+    vpnType: document.getElementById('winVpnType').value,
+    psk: document.getElementById('winPsk').value,
+    dataEncryption: document.getElementById('winDataEncryption').value,
+    authPap: document.getElementById('winAuthPap').checked,
+    authChap: document.getElementById('winAuthChap').checked,
+    authMschap2: document.getElementById('winAuthMschap2').checked,
+    idleSeconds: document.getElementById('winIdle').value
+  };
+}
+
+function computeWinAuth(v) {
+  var bits = 0;
+  if (v.authMschap2) bits += 512;
+  if (v.authChap) bits += 32;
+  if (v.authPap) bits += 128;
+  if (bits === 0) bits = 544;
+  return { authRestrictions: bits, customAuthKey: 26 };
+}
+
+function buildWindowsPbk(v) {
+  var typeInfo = WIN_VPN_TYPE_MAP[v.vpnType] || WIN_VPN_TYPE_MAP.l2tp;
+  var auth = computeWinAuth(v);
+  var name = pbkSafeName(v.connectionName);
+  var lines = [];
+  lines.push('[' + name + ']');
+  lines.push('Encoding=1');
+  lines.push('PBVersion=8');
+  lines.push('Type=2');
+  lines.push('AutoLogon=0');
+  lines.push('UseRasCredentials=1');
+  lines.push('VpnStrategy=' + typeInfo.vpnStrategy);
+  lines.push('ExcludedProtocols=' + typeInfo.excludedProtocols);
+  lines.push('LcpExtensions=1');
+  lines.push('DataEncryption=' + v.dataEncryption);
+  lines.push('SwCompression=1');
+  lines.push('NegotiateMultilinkAlways=0');
+  lines.push('SkipDoubleDialDialog=0');
+  lines.push('DialMode=1');
+  lines.push('OverridePref=15');
+  lines.push('RedialAttempts=99');
+  lines.push('RedialSeconds=3');
+  lines.push('IdleDisconnectSeconds=' + v.idleSeconds);
+  lines.push('RedialOnLinkFailure=0');
+  lines.push('CallbackMode=0');
+  lines.push('CustomDialDll=');
+  lines.push('CustomDialFunc=');
+  lines.push('CustomRasDialDll=');
+  lines.push('ForceSecureCompartment=0');
+  lines.push('DisableIKENameEkuCheck=1');
+  lines.push('AuthenticateServer=0');
+  lines.push('ShareMsFilePrint=1');
+  lines.push('BindMsNetClient=1');
+  lines.push('SharedPhoneNumbers=0');
+  lines.push('GlobalDeviceSettings=0');
+  lines.push('PrerequisiteEntry=');
+  lines.push('PrerequisitePbk=');
+  lines.push('PreferredPort=VPN1-0');
+  lines.push('PreferredDevice=' + typeInfo.device);
+  lines.push('PreferredBps=0');
+  lines.push('PreferredHwFlow=1');
+  lines.push('PreferredProtocol=1');
+  lines.push('PreferredCompression=1');
+  lines.push('PreferredSpeaker=1');
+  lines.push('PreferredMdmProtocol=0');
+  lines.push('PreviewUserPw=1');
+  lines.push('PreviewDomain=0');
+  lines.push('PreviewPhoneNumber=0');
+  lines.push('ShowDialingProgress=1');
+  lines.push('ShowMonitorIconInTaskBar=1');
+  lines.push('CustomAuthKey=' + auth.customAuthKey);
+  lines.push('AuthRestrictions=' + auth.authRestrictions);
+  lines.push('IpPrioritizeRemote=1');
+  lines.push('IpInterfaceMetric=0');
+  lines.push('IpHeaderCompression=0');
+  lines.push('IpAddress=0.0.0.0');
+  lines.push('IpDnsAddress=0.0.0.0');
+  lines.push('IpDns2Address=0.0.0.0');
+  lines.push('IpWinsAddress=0.0.0.0');
+  lines.push('IpWins2Address=0.0.0.0');
+  lines.push('IpAssign=1');
+  lines.push('IpNameAssign=1');
+  lines.push('IpDnsFlags=0');
+  lines.push('IpNBTFlags=1');
+  lines.push('TcpWindowSize=0');
+  lines.push('UseFlags=0');
+  lines.push('IpSecFlags=1');
+  lines.push('IpDnsSuffix=');
+  lines.push('Ipv6Assign=1');
+  lines.push('Ipv6Address=::');
+  lines.push('Ipv6PrefixLength=0');
+  lines.push('Ipv6PrioritizeRemote=1');
+  lines.push('Ipv6InterfaceMetric=0');
+  lines.push('Ipv6NameAssign=1');
+  lines.push('Ipv6DnsAddress=::');
+  lines.push('Ipv6Dns2Address=::');
+  lines.push('Ipv6Prefix=0000000000000000');
+  lines.push('DisableClassBasedDefaultRoute=0');
+  lines.push('DisableMobility=0');
+  lines.push('NetworkOutageTime=0');
+  lines.push('IDI=');
+  lines.push('IDR=');
+  lines.push('ImsConfig=0');
+  lines.push('IdiType=0');
+  lines.push('IdrType=0');
+  lines.push('ProvisionType=0');
+  lines.push('PreSharedKey=' + (v.vpnType === 'l2tp' ? v.psk : ''));
+  lines.push('CacheCredentials=0');
+  lines.push('NumCustomPolicy=0');
+  lines.push('NumEku=0');
+  lines.push('UseMachineRootCert=0');
+  lines.push('Disable_IKEv2_Fragmentation=0');
+  lines.push('PlumbIKEv2TSAsRoutes=0');
+  lines.push('NumServers=0');
+  lines.push('RouteVersion=1');
+  lines.push('NumRoutes=0');
+  lines.push('NumNrptRules=0');
+  lines.push('AutoTiggerCapable=0');
+  lines.push('NumAppIds=0');
+  lines.push('NumClassicAppIds=0');
+  lines.push('SecurityDescriptor=');
+  lines.push('ApnInfoProviderId=');
+  lines.push('ApnInfoUsername=');
+  lines.push('ApnInfoPassword=');
+  lines.push('ApnInfoAccessPoint=');
+  lines.push('ApnInfoAuthentication=1');
+  lines.push('ApnInfoCompression=0');
+  lines.push('DeviceComplianceEnabled=0');
+  lines.push('DeviceComplianceSsoEnabled=0');
+  lines.push('DeviceComplianceSsoEku=');
+  lines.push('DeviceComplianceSsoIssuer=');
+  lines.push('FlagsSet=0');
+  lines.push('Options=0');
+  lines.push('DisableDefaultDnsSuffixes=0');
+  lines.push('NumTrustedNetworks=0');
+  lines.push('NumDnsSearchSuffixes=0');
+  lines.push('PowershellCreatedProfile=0');
+  lines.push('ProxyFlags=0');
+  lines.push('ProxySettingsModified=0');
+  lines.push('ProvisioningAuthority=');
+  lines.push('AuthTypeOTP=0');
+  lines.push('GREKeyDefined=0');
+  lines.push('NumPerAppTrafficFilters=0');
+  lines.push('AlwaysOnCapable=0');
+  lines.push('DeviceTunnel=0');
+  lines.push('PrivateNetwork=0');
+  lines.push('ManagementApp=');
+  lines.push('');
+  lines.push('NETCOMPONENTS=');
+  lines.push('ms_server=1');
+  lines.push('ms_msclient=1');
+  lines.push('ms_psched=1');
+  lines.push('ms_nwsapagent=1');
+  lines.push('');
+  lines.push('MEDIA=rastapi');
+  lines.push('Port=VPN1-0');
+  lines.push('Device=' + typeInfo.device);
+  lines.push('');
+  lines.push('DEVICE=vpn');
+  lines.push('PhoneNumber=' + v.serverAddress);
+  lines.push('AreaCode=');
+  lines.push('CountryCode=98');
+  lines.push('CountryID=98');
+  lines.push('UseDialingRules=0');
+  lines.push('Comment=');
+  lines.push('FriendlyName=');
+  lines.push('LastSelectedPhone=0');
+  lines.push('PromoteAlternates=0');
+  lines.push('TryNextAlternateOnFail=1');
+  lines.push('');
+
+  return lines.join('\r\n');
+}
+
+function validateWindows(v) {
+  if (!v.connectionName) return 'لطفاً نام کانکشن را وارد کن.';
+  if (!v.serverAddress) return 'لطفاً آدرس سرور را وارد کن.';
+  if (v.vpnType === 'l2tp' && !v.psk) return 'لطفاً کلید مشترک (Pre-shared key) را برای L2TP/IPsec وارد کن.';
+  return null;
+}
+
+/* ===================== Unified compute / generate ===================== */
+async function computeMobileconfigXml() {
+  const v = readMobileconfigValues();
+  const error = validateMobileconfig(v);
+  if (error) throw new Error(error);
+  const xml = buildProfileXml(v);
+  const safeName = (v.connectionName || 'vpn').replace(/[^a-zA-Z0-9-_]+/g, '-');
+  return { text: xml, mime: 'application/x-apple-aspen-config', filename: safeName + '.mobileconfig' };
+}
+
+async function computeMacInstallScript() {
+  const v = readMobileconfigValues();
+  const error = validateMobileconfig(v);
+  if (error) throw new Error(error);
+  const xml = buildProfileXml(v);
+  const safeName = (v.connectionName || 'vpn').replace(/[^a-zA-Z0-9-_]+/g, '-');
+  const script = '#!/bin/bash\n' +
+'set -e\n' +
+'PROFILE_PATH="$(mktemp -t vpnprofile).mobileconfig"\n' +
+'cat > "$PROFILE_PATH" << \'VPN_PROFILE_EOF\'\n' +
+xml +
+'VPN_PROFILE_EOF\n' +
+'echo "در حال نصب پروفایل VPN — رمز مک را وارد کن..."\n' +
+'sudo profiles install -type=configuration -path="$PROFILE_PATH"\n' +
+'rm -f "$PROFILE_PATH"\n' +
+'echo "نصب کامل شد."\n';
+  return { text: script, mime: 'application/x-sh', filename: safeName + '-install-mac.sh' };
+}
+
+async function computeOvpnText() {
+  const v = readOvpnValues();
+  const error = validateOvpn(v);
+  if (error) throw new Error(error);
+  let resolvedClientKey;
+  try {
+    resolvedClientKey = await resolveClientKey(v.clientKeyRaw, v.keyPassphrase);
+  } catch (e) {
+    throw new Error('رمزگشایی کلید ناموفق بود — احتمالاً passphrase اشتباه است یا فرمت کلید پشتیبانی نمی‌شود. (' + e.message + ')');
+  }
+  const text = buildOvpn(v, resolvedClientKey);
+  const safeName = v.profileName.replace(/[^a-zA-Z0-9-_]+/g, '-');
+  return { text, mime: 'application/x-openvpn-profile', filename: safeName + '.ovpn' };
+}
+
+async function computeWindowsPbkText() {
+  const v = readWindowsValues();
+  const error = validateWindows(v);
+  if (error) throw new Error(error);
+  const text = buildWindowsPbk(v);
+  const safeName = v.connectionName.replace(/[^a-zA-Z0-9-_]+/g, '-');
+  return { text, mime: 'application/octet-stream', filename: safeName + '.pbk' };
+}
+
+async function computeCurrent() {
+  const type = currentType();
+  if (type === 'OpenVPN') return computeOvpnText();
+  if (type === 'Windows') return computeWindowsPbkText();
+  return computeMobileconfigXml();
+}
+
+async function handleGenerate(download) {
+  const generateBtn = document.getElementById('generateBtn');
+  generateBtn.disabled = true;
+  try {
+    let result;
+    try {
+      result = await computeCurrent();
+    } catch (e) {
+      showMsg(e.message, 'err');
+      return;
+    }
+    document.getElementById('preview').value = result.text;
+
+    if (download) {
+      const blob = new Blob([result.text], { type: result.mime });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = result.filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showMsg('فایل ساخته و دانلود شد ✅', 'ok');
+    } else {
+      await navigator.clipboard.writeText(result.text);
+      showMsg('متن کپی شد ✅', 'ok');
+    }
+  } finally {
+    generateBtn.disabled = false;
+  }
+}
+
+wireFileInput('caCertBrowse', 'caCertFile', 'caCert', 'caCertFilename');
+wireFileInput('clientCertBrowse', 'clientCertFile', 'clientCert', 'clientCertFilename');
+wireFileInput('clientKeyBrowse', 'clientKeyFile', 'clientKey', 'clientKeyFilename');
+wireFileInput('tlsKeyBrowse', 'tlsKeyFile', 'tlsKey', 'tlsKeyFilename');
+
+document.getElementById('generateBtn').addEventListener('click', () => handleGenerate(true));
+document.getElementById('copyBtn').addEventListener('click', () => handleGenerate(false));
+document.getElementById('iosNavRightBtn').addEventListener('click', () => handleGenerate(true));
+document.getElementById('iosNavLeftBtn').addEventListener('click', () => {
+  if (!document.getElementById('typePickerView').classList.contains('hidden')) {
+    hideTypePicker();
+  } else {
+    resetMobileFields();
+  }
+});
+document.getElementById('typeRow').addEventListener('click', showTypePicker);
+document.querySelectorAll('#typePickerView .iosRow').forEach(function (row) {
+  row.addEventListener('click', function () {
+    currentMobileType = row.getAttribute('data-type');
+    updateTypeUI();
+    hideTypePicker();
+  });
+});
+
+document.getElementById('macScriptBtn').addEventListener('click', async () => {
+  let result;
+  try {
+    result = await computeMacInstallScript();
+  } catch (e) {
+    showMsg(e.message, 'err');
+    return;
+  }
+  const blob = new Blob([result.text], { type: result.mime });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = result.filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  showMsg('اسکریپت نصب مک ساخته و دانلود شد ✅', 'ok');
+});
+
+const shareBtn = document.getElementById('shareBtn');
+shareBtn.addEventListener('click', async () => {
+  let result;
+  try {
+    result = await computeCurrent();
+  } catch (e) {
+    showMsg(e.message, 'err');
+    return;
+  }
+  try {
+    const file = new File([result.text], result.filename, { type: result.mime });
+    if (!navigator.canShare({ files: [file] })) {
+      showMsg('مرورگر این مدل امکان اشت��اک‌گذاری فایل را ندارد — فایل را دانلود کن و دستی در برنامه وارد کن.', 'err');
+      return;
+    }
+    await navigator.share({ files: [file], title: result.filename });
+  } catch (e) {
+    if (e.name !== 'AbortError') {
+      showMsg('ارسال با خطا مواجه شد: ' + e.message, 'err');
+    }
+  }
+});
+
+updateTypeUI();
+</script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('sw.js').catch(function () {});
+    });
+  }
+</script>
+</body>
+</html>
