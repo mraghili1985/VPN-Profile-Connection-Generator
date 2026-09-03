@@ -2,6 +2,7 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 <title>سازنده پروفایل VPN (L2TP / IKEv2 / OpenVPN)</title>
 <link rel="manifest" href="manifest.json" />
 <meta name="theme-color" content="#2F6FED" />
@@ -48,6 +49,7 @@
   #labelMobileconfig.active { background: linear-gradient(135deg, var(--blue), #5B9CFF); box-shadow:0 6px 16px rgba(47,111,237,.3); }
   #labelOpenVPN.active { background: linear-gradient(135deg, var(--orange), #FFB05C); box-shadow:0 6px 16px rgba(224,138,46,.3); }
   #labelWindows.active { background: linear-gradient(135deg, #4B5563, #8B93A1); box-shadow:0 6px 16px rgba(75,85,99,.3); }
+  #labelStrongswan.active { background: linear-gradient(135deg, #16A34A, #4ADE80); box-shadow:0 6px 16px rgba(22,163,74,.3); }
 
   fieldset { border:1px solid var(--border); border-radius:16px; padding:20px 22px 22px; margin:0 0 20px; background:#fff; box-shadow: var(--card-shadow); }
   legend { font-weight:800; font-size:13.5px; padding:5px 14px; color:var(--blue-dark); background:var(--blue-soft); border-radius:999px; }
@@ -150,6 +152,21 @@
   .iosSwitch input:checked + .slider { background:#34C759; }
   .iosSwitch input:checked + .slider::before { transform:translateX(19px); }
 
+  @media (max-width: 560px) {
+    body { padding:26px 12px 70px; }
+    h1 { font-size:22px; }
+    .sub { font-size:13.5px; margin-bottom:20px; }
+    .typeSwitch { flex-wrap:wrap; gap:8px; }
+    .typeSwitch label { padding:11px 0; font-size:13.5px; flex:1 1 auto; min-width:96px; }
+    fieldset { padding:16px 14px 18px; }
+    .row3 { grid-template-columns:1fr; }
+    .row2 { grid-template-columns:1fr; }
+    .actions { flex-wrap:wrap; }
+    .iosLabel { font-size:13.5px; white-space:normal; }
+    .iosRow { padding:11px 12px; flex-wrap:wrap; }
+    .iosRow input[type=text], .iosRow input[type=password] { font-size:13.5px; }
+  }
+
 </style>
 </head>
 <body>
@@ -170,6 +187,10 @@
     <label id="labelWindows">
       <input type="radio" name="vpnType" value="Windows" />
       <span>Windows</span>
+    </label>
+    <label id="labelStrongswan">
+      <input type="radio" name="vpnType" value="StrongSwan" />
+      <span>StrongSwan</span>
     </label>
   </div>
 
@@ -257,7 +278,7 @@
             <span class="iosValue" id="slotPasswordIKEv2"></span>
           </div>
         </div>
-        <p class="iosNote" id="ikev2CredNote">اگر Username یا Password را خالی بگذارید، هر بار هنگام اتصال از شما پرسیده می‌شود. با واردکردن مقدار در اینجا، دیگر پرسیده نمی‌شود و همین مقدار استفاده می‌شود.</p>
+        <p class="iosNote" id="ikev2CredNote">اگر Username یا Password را خالی بگذارید، این دو کلید اصلاً در پروفایل نوشته نمی‌شود، برای همین موقع نصب/اتصال از شما پرسیده می‌شود و بعداً هم از Settings ‹ VPN قابل ویرایش می‌ماند. با واردکردن مقدار در اینجا، دیگر پرسیده نمی‌شود و همین مقدار استفاده می‌شود (اما دیگر از Settings قابل ویرایش نیست).</p>
       </div>
 
       <div class="iosSectionLabel">Proxy</div>
@@ -470,7 +491,7 @@
         <option value="16">نیازمند رمزگذاری (Require encryption)</option>
         <option value="256">حداکثر قدرت رمزگذاری (Maximum strength)</option>
       </select>
-      <p class="note">⚠️ فقط گزینهٔ «رمزگذاری اختیاری» روی دستگاه واقعی تست شده و درست کار می‌کند. بقیه گزینه‌ها بر اساس منابع عمومی مایکروسافت تخمین زده شده‌اند و روی دستگاه واقعی امتحان نشده‌اند.</p>
+      <p class="note">⚠��� فقط گزینهٔ «رمزگذاری اختیاری» روی دستگاه واقعی تست شده و درست کار می‌کند. بقیه گزینه‌ها بر اساس منابع عمومی مایکروسافت تخمین زده شده‌اند و روی دستگاه واقعی امتحان نشده‌اند.</p>
     </fieldset>
 
     <fieldset>
@@ -488,7 +509,7 @@
         <input type="checkbox" id="winAuthMschap2" checked />
         <label for="winAuthMschap2">MS-CHAP v2</label>
       </div>
-      <p class="note">⚠️ فقط ترکیب پیش‌فرض یعنی CHAP به‌همراه MS-CHAP v2 بدون PAP، روی دستگاه واقعی تست شده. اگر ترکیب دیگری را امتحان کردی و وصل نشد، یک کانکشن مشابه را دستی در ویندوز بساز و فایل واقعی ایکسپورت‌شده را برایم بفرست تا دقیقش کنم.</p>
+      <p class="note">⚠️ فقط تر����یب پیش‌فرض یعنی CHAP به‌همراه MS-CHAP v2 بدون PAP، روی دستگاه واقعی تست شده. اگر ترکیب دیگری را امتحان کردی و وصل نشد، یک کانکشن مشابه را دستی در ویندوز بساز و فایل واقعی ایکسپورت‌شده را برایم بفرست تا دقیقش کنم.</p>
     </fieldset>
 
     <fieldset>
@@ -509,6 +530,51 @@
       </select>
       <p class="note">موارد تب شبکه‌سازی (File and Printer Sharing، Client for Microsoft Networks، IPv4، IPv6) همیشه فعال هستند — دقیقاً مطابق همون نمونه‌ای که برایم فرستادی.</p>
     </fieldset>
+  </div>
+
+  <div id="strongswanWrap" class="hidden">
+    <fieldset>
+      <legend>اتصال به سرور (IKEv2 / EAP-MSCHAPv2)</legend>
+
+      <label class="field">نام اتصال (Connection Name) <span class="hint">فقط حروف/عدد انگلیسی — در ipsec.conf استفاده می‌شود</span></label>
+      <input type="text" id="ssConnName" placeholder="myvpn" />
+
+      <label class="field">آدرس سرور (Remote) <span class="hint">الزامی</span></label>
+      <input type="text" id="ssServerAddress" placeholder="vpn.example.com" />
+
+      <div class="row2">
+        <div>
+          <label class="field">Remote ID <span class="hint">خالی = همون آدرس سرور — باید دقیقاً برابر یکی از SAN های گواهی سرور باشد</span></label>
+          <input type="text" id="ssRemoteId" placeholder="vpn.example.com" />
+        </div>
+        <div>
+          <label class="field">Local ID <span class="hint">اختیاری</span></label>
+          <input type="text" id="ssLocalId" placeholder="" />
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>احراز هویت (یوزرنیم/پسورد)</legend>
+
+      <div class="row2">
+        <div>
+          <label class="field">Username</label>
+          <input type="text" id="ssUsername" placeholder="خالی بذار: مقدار پیش‌فرض username" />
+        </div>
+        <div>
+          <label class="field">Password</label>
+          <input type="text" id="ssPassword" placeholder="خالی بذار: مقدار پیش‌فرض password" />
+        </div>
+      </div>
+      <p class="note">اگر یوزرنیم/پسورد را خالی بگذاری، در فایل خروجی مقدار پیش‌فرض <code>username</code> و <code>password</code> نوشته می‌شود که بعداً خودت در همون فایل‌ها (روی سرور/کلاینت لینوکسی) دستی ویرایش کن.</p>
+    </fieldset>
+
+    <details style="margin-top:4px;">
+      <summary>ℹ️ راهنمای استفاده از فایل خروجی</summary>
+      <p class="note">فایل خروجی شامل دو بخش است: بخش اول را داخل <code>/etc/ipsec.conf</code> و بخش دوم را داخل <code>/etc/ipsec.secrets</code> (روی کلاینت/سرور لینوکسی که strongSwan نصب دارد) کپی کن، سپس با دستور <code>sudo ipsec restart</code> و <code>sudo ipsec up نام-اتصال</code> وصل شو. این تنظیم فرض می‌کند گواهی سرور با یک گواهی معتبر عمومی (مثل Let's Encrypt) بالا آمده و نیازی به CA دستی ندارد؛ اگر سرورت از گواهی self-signed استفاده می‌کند، باید جداگانه گواهی CA را هم به کلاینت معرفی کنی.</p>
+      <p class="note">⚠️ توجه: strongSwan از گواهی‌های wildcard (مثل <code>*.example.com</code>) برای تطبیق هویت سرور پشتیبانی نمی‌کند. Remote ID باید دقیقاً همان مقداری باشد که به‌صورت صریح در Subject Alternative Name (SAN) گواهی سرور نوشته شده (نه فقط CN و نه یک زیردامنه‌ی متفاوت با wildcard).</p>
+    </details>
   </div>
 
   <div class="actions">
@@ -532,7 +598,7 @@
     <p class="note"><b>روش ۱ (گرافیکی):</b> روی فایل دابل‌کلیک کن تا باز شود، بعد از System Settings برو به Privacy &amp; Security ← Profiles و روی پروفایل بزن Install.</p>
     <p class="note"><b>روش ۲ (ترمینال، بدون کلیک):</b> دکمهٔ «دانلود اسکریپت نصب برای مک» را بزن، بعد داخل Terminal بنویس:<br />
     <code>chmod +x ~/Downloads/*-install-mac.sh &amp;&amp; ~/Downloads/*-install-mac.sh</code><br />
-    رمز مک رو که پرسید وارد کن; پروفایل خودکار نصب می‌شود.</p>
+    پنجرهٔ System Settings خودکار باز می‌شود; روی پروفایل بزن Install و رمز مک را وارد کن تا نصب تکمیل شود. (macOS از نسخهٔ Ventura به بعد، نصب خودکار از طریق خط فرمان را حذف کرده و فقط از طریق System Settings امکان‌پذیره.)</p>
   </details>
 
     <details>
@@ -613,6 +679,7 @@ function updateTypeUI() {
   document.getElementById('mobileconfigWrap').classList.toggle('hidden', !isMobileconfig);
   document.getElementById('openvpnWrap').classList.toggle('hidden', type !== 'OpenVPN');
   document.getElementById('windowsWrap').classList.toggle('hidden', type !== 'Windows');
+  document.getElementById('strongswanWrap').classList.toggle('hidden', type !== 'StrongSwan');
 
   document.getElementById('l2tpFields').classList.toggle('hidden', type !== 'L2TP');
   document.getElementById('ikev2Fields').classList.toggle('hidden', type !== 'IKEv2');
@@ -629,6 +696,7 @@ function updateTypeUI() {
   document.getElementById('labelMobileconfig').classList.toggle('active', isMobileconfig);
   document.getElementById('labelOpenVPN').classList.toggle('active', type === 'OpenVPN');
   document.getElementById('labelWindows').classList.toggle('active', type === 'Windows');
+  document.getElementById('labelStrongswan').classList.toggle('active', type === 'StrongSwan');
 
   if (type === 'Windows') updateWinPskVisibility();
 
@@ -639,6 +707,9 @@ function updateTypeUI() {
     copyBtn.textContent = 'کپی متن';
   } else if (type === 'Windows') {
     generateBtn.textContent = 'تولید و دانلود فایل (.pbk)';
+    copyBtn.textContent = 'کپی متن';
+  } else if (type === 'StrongSwan') {
+    generateBtn.textContent = 'تولید و دانلود فایل (ipsec.conf)';
     copyBtn.textContent = 'کپی متن';
   } else {
     generateBtn.textContent = 'تولید و دانلود پروفایل (.mobileconfig)';
@@ -786,6 +857,20 @@ function buildL2tpXml(v, profileUuid, vpnUuid, profileIdentifier, vpnIdentifier)
 
 function buildIkev2Xml(v, profileUuid, vpnUuid, profileIdentifier, vpnIdentifier) {
   var remoteId = v.remoteId || v.serverAddress;
+  // Omit AuthName/AuthPassword entirely when left blank. Baking in a
+  // placeholder value (e.g. "username") locks that field as read-only in
+  // Settings > VPN on iOS, which is worse than the install-time prompt.
+  // Omitting the keys keeps iOS asking for credentials at install/connect
+  // time while leaving both fields editable afterward.
+  var authFields = '';
+  if (v.username) {
+    authFields += '\t\t\t\t<key>AuthName</key>\n' +
+'\t\t\t\t<string>' + escapeXml(v.username) + '</string>\n';
+  }
+  if (v.password) {
+    authFields += '\t\t\t\t<key>AuthPassword</key>\n' +
+'\t\t\t\t<string>' + escapeXml(v.password) + '</string>\n';
+  }
   return commonHeader(v, profileUuid, profileIdentifier) +
     commonVpnHead(v, vpnIdentifier, vpnUuid, 'IKEv2') +
 '\t\t\t<key>IKEv2</key>\n' +
@@ -800,10 +885,7 @@ function buildIkev2Xml(v, profileUuid, vpnUuid, profileIdentifier, vpnIdentifier
 '\t\t\t\t<string>None</string>\n' +
 '\t\t\t\t<key>ExtendedAuthEnabled</key>\n' +
 '\t\t\t\t<true/>\n' +
-'\t\t\t\t<key>AuthName</key>\n' +
-'\t\t\t\t<string>' + escapeXml(v.username) + '</string>\n' +
-'\t\t\t\t<key>AuthPassword</key>\n' +
-'\t\t\t\t<string>' + escapeXml(v.password) + '</string>\n' +
+authFields +
 '\t\t\t\t<key>OnDemandEnabled</key>\n' +
 '\t\t\t\t<integer>0</integer>\n' +
 '\t\t\t</dict>\n' +
@@ -1422,10 +1504,11 @@ async function computeMacInstallScript() {
 'cat > "$PROFILE_PATH" << \'VPN_PROFILE_EOF\'\n' +
 xml +
 'VPN_PROFILE_EOF\n' +
-'echo "در حال نصب پروفایل VPN — رمز مک را وارد کن..."\n' +
-'sudo profiles install -type=configuration -path="$PROFILE_PATH"\n' +
-'rm -f "$PROFILE_PATH"\n' +
-'echo "نصب کامل شد."\n';
+'echo "در حال باز کردن پنجره‌ی نصب پروفایل..."\n' +
+'open "$PROFILE_PATH"\n' +
+'echo "در پنجره‌ی System Settings که باز شد، روی پروفایل بزن Install و رمز مک را وارد کن."\n' +
+'sleep 2\n' +
+'rm -f "$PROFILE_PATH"\n';
   return { text: script, mime: 'application/x-sh', filename: safeName + '-install-mac.sh' };
 }
 
@@ -1453,10 +1536,69 @@ async function computeWindowsPbkText() {
   return { text, mime: 'application/octet-stream', filename: safeName + '.pbk' };
 }
 
+function readStrongswanValues() {
+  var connNameRaw = document.getElementById('ssConnName').value.trim() || 'myvpn';
+  var connName = connNameRaw.toLowerCase().replace(/[^a-z0-9]+/g, '') || 'myvpn';
+  return {
+    connName: connName,
+    serverAddress: document.getElementById('ssServerAddress').value.trim(),
+    remoteId: document.getElementById('ssRemoteId').value.trim(),
+    localId: document.getElementById('ssLocalId').value.trim(),
+    username: document.getElementById('ssUsername').value.trim(),
+    password: document.getElementById('ssPassword').value.trim(),
+  };
+}
+
+function validateStrongswan(v) {
+  if (!v.serverAddress) return 'لطفاً آدرس سرور را وارد کن.';
+  return null;
+}
+
+function sanitizeSecretValue(s) {
+  // ipsec.secrets values are wrapped in double quotes; avoid breaking that syntax.
+  return String(s).replace(/"/g, "'");
+}
+
+function buildStrongswanConfig(v) {
+  var remoteId = v.remoteId || v.serverAddress;
+  var username = v.username || 'username';
+  var password = v.password || 'password';
+  var lines = [];
+  lines.push('# ===== /etc/ipsec.conf =====');
+  lines.push('# این بخش را داخل فایل /etc/ipsec.conf (روی کلاینت/سرور لینوکسی strongSwan) کپی کن');
+  lines.push('conn ' + v.connName);
+  lines.push('    keyexchange=ikev2');
+  lines.push('    right=' + v.serverAddress);
+  lines.push('    rightid=' + remoteId);
+  lines.push('    rightauth=pubkey');
+  lines.push('    rightsubnet=0.0.0.0/0,::/0');
+  lines.push('    left=%defaultroute');
+  lines.push('    leftsourceip=%config4,%config6');
+  if (v.localId) lines.push('    leftid=' + v.localId);
+  lines.push('    leftauth=eap-mschapv2');
+  lines.push('    eap_identity=' + username);
+  lines.push('    auto=add');
+  lines.push('');
+  lines.push('# ===== /etc/ipsec.secrets =====');
+  lines.push('# این خط را داخل فایل /etc/ipsec.secrets کپی کن');
+  lines.push(sanitizeSecretValue(username) + ' : EAP "' + sanitizeSecretValue(password) + '"');
+  lines.push('');
+  return lines.join('\n');
+}
+
+async function computeStrongswanText() {
+  const v = readStrongswanValues();
+  const error = validateStrongswan(v);
+  if (error) throw new Error(error);
+  const text = buildStrongswanConfig(v);
+  return { text, mime: 'text/plain', filename: v.connName + '-strongswan.conf' };
+}
+
 async function computeCurrent() {
   const type = currentType();
   if (type === 'OpenVPN') return computeOvpnText();
   if (type === 'Windows') return computeWindowsPbkText();
+  if (type === 'StrongSwan') return computeStrongswanText();
   return computeMobileconfigXml();
 }
 
